@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import Employees from './components/Employees';
+import Employees from './components/employees';
 import AddEmployees from './components/AddEmployees';
 import './App.css';
 
@@ -59,13 +59,11 @@ return (
         {
           return <Employees
             {...employee}
-            EmployeeID={employee.EmployeeID}
+            EMPLOYEE_ID={employee.EMPLOYEE_ID}
             FIRST_NAME={employee.FIRST_NAME}
             LAST_NAME={employee.LAST_NAME}
-            EmpStreetAddress={employee.EmpStreetAddress}
-           PHONE_NUMBER={employee.PHONE_NUMBER}
+             PHONE_NUMBER={employee.PHONE_NUMBER}
             EMAIL={employee.EMAIL}
-            EMPLOYEE_ID={employee.EMPLOYEE_ID}
             deleteEmployee={deleteEmployee}
             editEmployee={editEmployee}
           />}) 

@@ -16,7 +16,7 @@ const db = mysql.createConnection({
 app.use(cors());
 app.use(express.json());
 app.use(morgan('dev'));
-app.use(bodyParser.urlencoded({ extended: true }));
+// app.use(bodyParser.urlencoded({ extended: true }));
 
 
 db.connect((err) => {
@@ -56,8 +56,8 @@ app.post("/post", (req, res) => {
   });
 });
 
-app.delete("/delete/:employeeId", (req, res) => {
-  let sql = `DELETE FROM salesorders.employees WHERE EmployeeID = '${req.params.employeeId}'`
+app.delete("/delete/:EMPLOYEE_ID", (req, res) => {
+  let sql = `DELETE FROM hr.employees WHERE EEMPLOYEE_ID = '${req.params.EMPLOYEE_ID}'`
   db.query(sql, (err, result) => {
       if(err){
           throw (err);
@@ -68,19 +68,19 @@ app.delete("/delete/:employeeId", (req, res) => {
 });
 
 
-app.put("/edit/:employeeId", (req, res) => {
+app.put("/edit/:EMPLOYEE_ID", (req, res) => {
   let updateFIRST_NAME = req.body.FIRST_NAME;
   let updateLAST_NAME = req.body.LAST_NAME;
   let updatePHONE_NUMBER = req.body.PHONE_NUMBER;
   let updateEMAIL = req.body.EMAIL;
   let udpateEMPLOYEE_ID = req.body.EMPLOYEE_ID;
-  let sql = `UPDATE salesorders.employees SET 
+  let sql = `UPDATE hr.employees SET 
   FIRST_NAME = '${updateFIRST_NAME}',
   LAST_NAME = '${updateLAST_NAME}',
   PHONE_NUMBER = '${updatePHONE_NUMBER}',
   EMAIL = '${updateEMAIL}',
   EMPLOYEE_ID = '${udpateEMPLOYEE_ID}'
-      WHERE EmployeeID = '${req.params.employeeId}'`
+      WHERE EMPLOYEE_ID = '${req.params.EMPLOYEE_ID}'`
   db.query(sql, (err, result) => {
       if(err){
           throw (err);

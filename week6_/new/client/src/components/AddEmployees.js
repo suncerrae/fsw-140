@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 
 function AddEmployees(props){
 
-    const initInputs = { FIRST_NAME: props.FIRST_NAME || "", LAST_NAME: props.LAST_NAME || "", PHONE_NUMBER: props.PHONE_NUMBER || "", EMAIL: props.EMAIL || "", EMPLOYEE_ID: props.EMPLOYEE_ID || ""  }
+    const initInputs = { EmpFirstName: props.EmpFirstName || "", EmpLastName: props.EmpLastName || "", EmpStreetAddress: props.EmpStreetAddress || "", EmpCity: props.EmpCity|| "", EmpState: props.EmpState || "", EmpPhoneNumber: props.EmpPhoneNumber || "", EmpZipCode: props.EmpZipCode || "", EmpAreaCode: props.EmpAreaCode || ""  }
     
     const [inputs, setInputs] = useState(initInputs)
 
@@ -12,7 +12,7 @@ function AddEmployees(props){
         setInputs(prevInputs => ({...prevInputs, [name]: value}))
     })
     
-    const handleSubmit = ((e) => {
+    const handleSubmit = ((e) => { e.preventDefault()
         props.submit(inputs, props.EmployeeID)
         setInputs(initInputs)
     })
@@ -38,16 +38,14 @@ function AddEmployees(props){
                     placeholder="Last Name"
                     className="form-text"
                 />
-                            
                 <input
                     type="text"
                     name="EMAIL"
                     value={inputs.EMAIL}
                     onChange={handleChange}
-                    placeholder="State ex.(CA)"
+                    placeholder="Email Address"
                     className="form-text"
-                />
-                              
+                />                                          
                 <input
                     type="text"
                     name="PHONE_NUMBER"
@@ -56,12 +54,12 @@ function AddEmployees(props){
                     placeholder="Phone Number"
                     className="form-text"
                 />
-                 <input
+                <input
                     type="text"
                     name="EMPLOYEE_ID"
                     value={inputs.EMPLOYEE_ID}
                     onChange={handleChange}
-                    placeholder="ID #"
+                    placeholder="EMPLOYEE_ID"
                     className="form-text"
                 />
                 <button className="add-btn">{ props.btnText }</button>
@@ -70,3 +68,5 @@ function AddEmployees(props){
         </div>
     )
 }
+
+export default AddEmployees;

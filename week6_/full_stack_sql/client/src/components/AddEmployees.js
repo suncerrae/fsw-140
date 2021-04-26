@@ -38,46 +38,14 @@ function AddEmployees(props){
                     placeholder="Last Name"
                     className="form-text"
                 />
-                {/* <input
-                    type="text"
-                    name="EmpStreetAddress"
-                    value={inputs.EmpStreetAddress}
-                    onChange={handleChange}
-                    placeholder="Street Address"
-                    className="form-text"
-                /> */}
-                {/* <input
-                    type="text"
-                    name="EmpCity"
-                    value={inputs.EmpCity}
-                    onChange={handleChange}
-                    placeholder="City"
-                    className="form-text"
-                />
                 <input
                     type="text"
-                    name="EmpState"
-                    value={inputs.EmpState}
+                    name="EMAIL"
+                    value={inputs.EMAIL}
                     onChange={handleChange}
-                    placeholder="State ex.(CA)"
+                    placeholder="Email Address"
                     className="form-text"
                 />
-                <input
-                    type="text"
-                    name="EmpZipCode"
-                    value={inputs.EmpZipCode}
-                    onChange={handleChange}
-                    placeholder="Zip Code"
-                    className="form-text"
-                />
-                <input
-                    type="text"
-                    name="EmpAreaCode"
-                    value={inputs.EmpAreaCode}
-                    onChange={handleChange}
-                    placeholder="Area Code"
-                    className="form-text"
-                /> */}
                 <input
                     type="text"
                     name="PHONE_NUMBER"
@@ -86,6 +54,15 @@ function AddEmployees(props){
                     placeholder="Phone Number"
                     className="form-text"
                 />
+
+                <input
+                    type="text"
+                    name="EMPLOYEE_ID"
+                    value={inputs.EMPLOYEE_ID}
+                    onChange={handleChange}
+                    placeholder="Area Code"
+                    className="form-text"
+                /> */
                 <button className="add-btn">{ props.btnText }</button>
             </form>
         </div>
