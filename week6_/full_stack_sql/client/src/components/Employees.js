@@ -4,7 +4,7 @@ import './employees.css';
 
 function Employees(props){
 
-    const { EmployeeID, EmpFirstName, EmpLastName, EmpStreetAddress, EmpCity, EmpState, EmpPhoneNumber, EmpZipCode, EmpAreaCode} = props;
+    const { EMPLOYEE_ID, FIRST_NAME, LAST_NAME, PHONE_NUMBER, EMAIL} = props;
     
     const [editToggle, setEditToggle] = useState(false);
 
@@ -17,16 +17,15 @@ function Employees(props){
         <div className="container">
         { !editToggle ?
         <> 
-            <p className="badge-text"> Employee ID: { EmployeeID }</p>
-            <p className="badge-text"> Full Name: { EmpFirstName } { EmpLastName }</p>
-            <p className="badge-text"> Address: { EmpStreetAddress } { EmpCity } { EmpState } {EmpZipCode}</p>
-            <p className="badge-text"> Phone Number: {EmpAreaCode} { EmpPhoneNumber }</p>
+            <p className="badge-text"> Employee ID: { EMPLOYEE_ID }</p>
+            <p className="badge-text"> Full Name: { FIRST_NAME } { LAST_NAME }</p>
+            <p className="badge-text"> Phone Number: {EMAIL} { PHONE_NUMBER }</p>
 
-            <img src={"https://www.osiwa.org/wp-content/uploads/2019/02/Blank-Person.png"} alt=""/>
+            {/* <img src={"https://www.osiwa.org/wp-content/uploads/2019/02/Blank-Person.png"} alt=""/> */}
             <div>
             <button
                 className="delete-btn"
-                onClick={() => props.deleteEmployee(EmployeeID)}>
+                onClick={() => props.deleteEmployee(EMPLOYEE_ID)}>
                 Delete
             </button>
             <button
@@ -39,15 +38,11 @@ function Employees(props){
         :
         <>
             <AddEmployees
-                EmployeeID={EmployeeID}
-                EmpFirstName={EmpFirstName}
-                EmpLastName={EmpLastName}
-                EmpStreetAddress={EmpStreetAddress}
-                EmpCity={EmpCity}
-                EmpState={EmpState}
-                EmpPhoneNumber={EmpPhoneNumber}
-                EmpZipCode={EmpZipCode}
-                EmpAreaCode={EmpAreaCode}
+                EMPLOYEE_ID={EMPLOYEE_ID}
+                FIRST_NAME={FIRST_NAME}
+                LAST_NAME={LAST_NAME}
+                PHONE_NUMBER={PHONE_NUMBER}
+                EMAIL={EMAIL}
                 btnText="Submit Edit" 
                 submit={props.editEmployee}
             />
