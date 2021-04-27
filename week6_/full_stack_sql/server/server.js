@@ -64,39 +64,39 @@ app.post("/post", (req, res) => {
   });
 });
 
-// app.delete("/delete/:EMPLOYEE_ID", (req, res) => {
-//   let sql = `DELETE FROM hr.employees WHERE EEMPLOYEE_ID = '${req.params.EMPLOYEE_ID}'`
-//   db.query(sql, (err, result) => {
-//       if(err){
-//           throw (err);
-//       }
-//       console.log(result);
-//       return res.send("Successfully Removed Employee!")
-//   });
-// });
+app.delete("/delete/:EMPLOYEE_ID", (req, res) => {
+  let sql = `DELETE FROM hr.employees WHERE EEMPLOYEE_ID = '${req.params.EMPLOYEE_ID}'`
+  db.query(sql, (err, result) => {
+      if(err){
+          throw (err);
+      }
+      console.log(result);
+      return res.send("Successfully Removed Employee!")
+  });
+});
 
 
-// app.put("/edit/:EMPLOYEE_ID", (req, res) => {
-//   let updateFIRST_NAME = req.body.FIRST_NAME;
-//   let updateLAST_NAME = req.body.LAST_NAME;
-//   let updatePHONE_NUMBER = req.body.PHONE_NUMBER;
-//   let updateEMAIL = req.body.EMAIL;
-//   let udpateEMPLOYEE_ID = req.body.EMPLOYEE_ID;
-//   let sql = `UPDATE hr.employees SET 
-//   FIRST_NAME = '${updateFIRST_NAME}',
-//   LAST_NAME = '${updateLAST_NAME}',
-//   PHONE_NUMBER = '${updatePHONE_NUMBER}',
-//   EMAIL = '${updateEMAIL}',
-//   EMPLOYEE_ID = '${udpateEMPLOYEE_ID}'
-//       WHERE EMPLOYEE_ID = '${req.params.EMPLOYEE_ID}'`
-//   db.query(sql, (err, result) => {
-//       if(err){
-//           throw (err);
-//       }
-//       console.log(result);
-//       return res.send(result);
-//   });
-// });
+app.put("/edit/:EMPLOYEE_ID", (req, res) => {
+  let updateFIRST_NAME = req.body.FIRST_NAME;
+  let updateLAST_NAME = req.body.LAST_NAME;
+  let updatePHONE_NUMBER = req.body.PHONE_NUMBER;
+  let updateEMAIL = req.body.EMAIL;
+  let udpateEMPLOYEE_ID = req.body.EMPLOYEE_ID;
+  let sql = `UPDATE hr.employees SET 
+  FIRST_NAME = '${updateFIRST_NAME}',
+  LAST_NAME = '${updateLAST_NAME}',
+  PHONE_NUMBER = '${updatePHONE_NUMBER}',
+  EMAIL = '${updateEMAIL}',
+  EMPLOYEE_ID = '${udpateEMPLOYEE_ID}'
+      WHERE EMPLOYEE_ID = '${req.params.EMPLOYEE_ID}'`
+  db.query(sql, (err, result) => {
+      if(err){
+          throw (err);
+      }
+      console.log(result);
+      return res.send(result);
+  });
+});
 
 app.listen(7000, () => {
   console.log("Running on Port 7000")
