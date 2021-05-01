@@ -9,7 +9,7 @@ const morgan = require('morgan');
 const db = mysql.createConnection({
   host: 'localhost',
   user: 'root',
-  password: 'password',
+  password: 'mysql',
   database: 'hr'
 });
 
@@ -65,7 +65,7 @@ app.post("/post", (req, res) => {
 });
 
 app.delete("/delete/:EMPLOYEE_ID", (req, res) => {
-  let sql = `DELETE FROM hr.employees WHERE EEMPLOYEE_ID = '${req.params.EMPLOYEE_ID}'`
+  let sql = `DELETE FROM hr.employees WHERE EMPLOYEE_ID = '${req.params.EMPLOYEE_ID}'`
   db.query(sql, (err, result) => {
       if(err){
           throw (err);

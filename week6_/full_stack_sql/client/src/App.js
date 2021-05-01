@@ -17,15 +17,20 @@ function App() {
   const addEmployee = ((newEmployee) => {
     axios.post("http://localhost:7000/post", newEmployee)
         .then(res => {
-            setEmployees(prevEmployees => [...prevEmployees, res.data])
+          setEmployees(prevEmployees => [...prevEmployees, newEmployee])
         })
         .catch(err => console.log(err))
   })
 
-  const deleteEmployee = ((employeeId) => {
-    axios.delete(`http://localhost:7000/delete/${employeeId}`)
+  const deleteEmployee = ((EMPLOYEE_ID) => {
+    console.log (EMPLOYEE_ID)
+    axios.delete(`http://localhost:7000/delete/${EMPLOYEE_ID}`)
+  
         .then(res => {
-            setEmployees(prevEmployees => prevEmployees.filter(employee => employee.EmployeeID !== employeeId))
+            // setEmployees(prevEmployees => prevEmployees.filter(employee => employee.EMPLOYEE_ID !== EMPLOYEE_ID))
+            setEmployees(prevEmployees => prevEmployees.filter(employee => employee.EMPLOYEE_ID !== EMPLOYEE_ID))
+
+
         })
         .catch(err => console.log(err))
   })
@@ -55,8 +60,9 @@ return (
             btnText="Add Employee"
         />
       {
-        employees.map(employee => 
-        {
+            employees.map(employee => 
+                      { 
+                            console.log(employee)
           return <Employees
             {...employee}
             key= {employee.EMPLOYEE_ID}
